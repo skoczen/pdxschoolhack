@@ -77,7 +77,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATE_DIRS = (
-    join(abspath(PROJECT_ROOT),"templates"),
+    join(abspath(PROJECT_ROOT), "templates"),
 )
 
 INSTALLED_APPS = (
@@ -98,8 +98,10 @@ INSTALLED_APPS = (
     "gunicorn",
     "south",
 
-    "main_site",
-    
+    "home",
+    "schools",
+    "events",
+
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
