@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 
-from main_site import views
+from home import views
 
 urlpatterns = patterns('',
     url(r'^$', views.home, name='home'),

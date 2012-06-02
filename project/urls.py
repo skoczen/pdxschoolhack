@@ -6,9 +6,9 @@ from django.conf import settings
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'', include('main_site.urls'), name="main_site"),
+    url(r'', include('home.urls'), name="home"),
 
     url(r'^fonts/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': "%s/main_site/fonts" % settings.STATIC_ROOT,
+            'document_root': "%s/home/fonts" % settings.STATIC_ROOT,
     }),
 )

@@ -2,18 +2,18 @@
 
 {% block css %}{{block.super}}
 {% compress css %}
-<link rel="stylesheet" href="{{STATIC_URL}}main_site/css/fonts.css">
-<link rel="stylesheet" href="{{STATIC_URL}}main_site/css/site.css">
+<link rel="stylesheet" href="{{STATIC_URL}}events/css/fonts.css">
+<link rel="stylesheet" href="{{STATIC_URL}}events/css/site.css">
 {% endcompress %}
 {% endblock %}
 
 {% block js %}{{block.super}}
 {% compress js %}
-<script src="{{STATIC_URL}}main_site/js/site.js"></script>
+<script src="{{STATIC_URL}}events/js/site.js"></script>
 {% endcompress %}
 {% endblock %}
 
 
 {% block content %}
-Artechetype loaded.
+Events
 {% endblock %}
