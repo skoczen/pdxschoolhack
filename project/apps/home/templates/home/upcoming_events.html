@@ -2,18 +2,18 @@
 
 {% block css %}{{block.super}}
 {% compress css %}
-<link rel="stylesheet" href="{{STATIC_URL}}events/css/fonts.css">
-<link rel="stylesheet" href="{{STATIC_URL}}events/css/site.css">
+<link rel="stylesheet" href="{{STATIC_URL}}home/css/fonts.css">
+<link rel="stylesheet" href="{{STATIC_URL}}home/css/site.css">
 {% endcompress %}
 {% endblock %}
 
 {% block js %}{{block.super}}
 {% compress js %}
-<script src="{{STATIC_URL}}events/js/site.js"></script>
+<script src="{{STATIC_URL}}home/js/site.js"></script>
 {% endcompress %}
 {% endblock %}
 
 
 {% block content %}
-Events
+Upcoming events for my schools
 {% endblock %}
