@@ -1,5 +1,6 @@
 from annoying.decorators import render_to
 
-# @render_to("main_site/home.html")
-# def home(request):
-#     return locals()
+
+@render_to("schools/detail.html")
+def detail(request, school_name_slug=None):
+    return locals()

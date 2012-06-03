@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% load compress %}
+
+{% block css %}{{block.super}}
+{% compress css %}
+<link rel="stylesheet" href="{{STATIC_URL}}schools/css/fonts.css">
+<link rel="stylesheet" href="{{STATIC_URL}}schools/css/site.css">
+{% endcompress %}
+{% endblock %}
+
+{% block js %}{{block.super}}
+{% compress js %}
+<script src="{{STATIC_URL}}schools/js/site.js"></script>
+{% endcompress %}
+{% endblock %}
+
+
+{% block content %}
+School detail
+{{ school_name }}
+{% endblock %}
