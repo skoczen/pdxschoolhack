@@ -18,10 +18,13 @@ setSchool = function(school,type){
 	
 	if(type == 'High'){
 		$('#high_school').val(school);
+		$('#high_school_complete').css('display','inline');
 	}else if (type == 'Middle'){
 		$('#middle_school').val(school);
+		$('#middle_school_complete').css('display','inline');
 	}else if(type == 'Elementary'){
 		$('#elementary_school').val(school);		
+		$('#elementary_school_complete').css('display','inline');
 	}
 	
 	return false;
