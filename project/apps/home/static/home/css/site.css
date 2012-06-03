@@ -1,0 +1,35 @@
+html {
+	height: 100%
+}
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+#main {
+	padding: 10px;
+}
+#map {
+	height: 100%
+}
+#header {
+	margin-bottom: 30px
+}
+#zipcode_form {
+	margin-bottom: 38px;
+}
+#zipcode label {
+	font-size: 20px;
+	width: 180px;
+	padding-right: 10px;
+	color: #ff6600;
+}
+#zipcode input {
+	width: 100px;
+}
+#schools {
+	margin-left: 30px
+}
+#schools input {
+	width: 200px;
+}
