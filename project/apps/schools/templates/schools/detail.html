@@ -15,6 +15,38 @@
 
 
 {% block content %}
-School detail
-{{ school_name }}
+<h1>{{ school.name }}</h1>
+
+<div>Type: {{school.school_type}} school</div>
+<div>Address: {{school.address}} {{school.city}}, OR {{school.zip}}</div>
+<iframe width="600" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{school.map_querystring}}&amp;output=embed&amp;t=m&amp;z=14"></iframe>
+<h2>Events</h2>
+<div class="events">
+{% for e in school.upcoming_events %}
+	<div class="event">
+		<div class="title"><a href="{{e.facebook_event_url}}">{{e.name}}</a></div>
+		<div class="times">
+			{% if start_time|date != end_time|date %}
+			<span class="start_time">{{e.start_time|date}} {{e.start_time|time}}</span>
+			-
+			<span class="end_time">{{e.end_time|date}} {{e.end_time|time}}</span>
+			{% else %}
+			<span class="start_date">{{e.start_time|date}},</span>
+			<span class="start_time">{{e.start_time|time}}</span>
+			-
+			<span class="end_time">{{e.end_time|time}}</span>
+			{% endif %}
+		</div>
+		<div class="description">
+			{{e.description}}
+		</div>
+	</div>
+{% endfor %}
+</div>
+
+<h2>Stats</h2>
+Enrollment: 
+
+<h2>Needs/Help Out</h2>
+
 {% endblock %}

@@ -87,7 +87,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # 'django.contrib.admindocs',
 
     "analytical",
@@ -101,6 +101,7 @@ INSTALLED_APPS = (
     "home",
     "schools",
     "events",
+    "my_schools",
 
 )
 
