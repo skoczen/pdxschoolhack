@@ -12,6 +12,7 @@ django-ses
 fabric
 gunicorn
 lxml
+pil
 psycopg2
 salad
 south
