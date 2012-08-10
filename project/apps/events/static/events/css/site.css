@@ -34,5 +34,6 @@ a.school_name {
 }
 .school .quick_contact_info {
 	float: right;
+	margin-top: 6px;
 	font-size: 18px;
 }

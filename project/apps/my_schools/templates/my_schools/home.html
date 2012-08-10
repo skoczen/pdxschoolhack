@@ -33,7 +33,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
 			<h1>My Schools</h1>
 			{% for s in my_schools %}
 			<div class="school">
-				<div class="quick_contact_info">{{s.phone_number}}</div>
+				<div class="quick_contact_info"><a href="mailto:{{school.email}}">{{s.email}}</a> &nbsp; {{s.phone_number}}</div>
 				<h2><a href="{% url schools:detail s.slug %}" class="school_name">{{s}}</a></h2>
 
 				<div class="events">
