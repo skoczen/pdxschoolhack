@@ -15,8 +15,6 @@
 
 
 {% block content %}
-<div class="row" id="main">
-  <div class="span12">
 	{% include "home/_header.html" %}
 	<div class="row full-width">
 	  <div class="span6">
@@ -25,7 +23,7 @@
 			<div>{{school.address}} {{school.city}}, OR {{school.zip}}</div>
 			<div>{{school.phone_number}}</div>
 			{% if school.email %}<div><a href="mailto:{{school.email}}">{{school.email}}</a></div>{% endif %}
-			{% if school.website %}<div><a href="{{school.website}}">Website</a></div>{% endif %}
+			{% if school.website %}<div><a href="{{school.website}}" target="_blank">Website</a></div>{% endif %}
 	  	</div>
 	  </div>
 	  <div class="span6">
@@ -38,7 +36,7 @@
 			<div class="events">
 			{% for e in school.upcoming_events %}
 				<div class="event">
-					<div class="title"><a href="{{e.facebook_event_url}}">{{e.name}}</a></div>
+					<div class="title"><a href="{{e.facebook_event_url}}" target="_blank">{{e.name}}</a></div>
 					<div class="times">
 						{% if start_time|date != end_time|date %}
 						<span class="start_time">{{e.start_time|date}} {{e.start_time|time}}</span>
@@ -70,5 +68,4 @@
 		(Once needs lists were build out, we'd add them here.)
 	  </div>
     </div>
-</div>
 {% endblock %}

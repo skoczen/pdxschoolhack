@@ -39,7 +39,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
 				<div class="events">
 					{% for e in s.upcoming_events %}
 					<div class="event">
-						<a href="{{e.facebook_url}}">{{e.name}}</a> - {{e.start_time|date}} {{e.start_time|time}}
+						<a href="{{e.facebook_event_url}}" target="_blank">{{e.name}}</a> - {{e.start_time|date}} {{e.start_time|time}}
 					</div>
 					{% endfor %}
 				</div>
