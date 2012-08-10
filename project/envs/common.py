@@ -15,6 +15,9 @@ ADMINS = (
     ('Steven Skoczen', 'skoczen@gmail.com'),
 )
 
+DEFAULT_FROM_EMAIL = "skoczen@gmail.com"
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
 MANAGERS = ADMINS
 
 DATABASES = {
