@@ -39,5 +39,4 @@ class School(models.Model):
     def map_querystring(self):
         s = "%(name)s,%(address)s,%(city)s, OR %(zip_code)s" % self.__dict__
         s.replace(" ", "+")
-        print s
         return s

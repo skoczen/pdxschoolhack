@@ -2,18 +2,43 @@
 
 {% block css %}{{block.super}}
 {% compress css %}
-<link rel="stylesheet" href="{{STATIC_URL}}events/css/fonts.css">
-<link rel="stylesheet" href="{{STATIC_URL}}events/css/site.css">
+<link rel="stylesheet" href="{{STATIC_URL}}home/css/fonts.css">
+<link rel="stylesheet" href="{{STATIC_URL}}home/css/site.css">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+	
+</style>
 {% endcompress %}
 {% endblock %}
+
+
 
 {% block js %}{{block.super}}
 {% compress js %}
-<script src="{{STATIC_URL}}events/js/site.js"></script>
+<script src="{{STATIC_URL}}home/js/site.js"></script>
 {% endcompress %}
 {% endblock %}
 
-
 {% block content %}
-List of events
+
+<script type="text/javascript"
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQwacn9bA&sensor=false"></script>
+<script src='//connect.facebook.net/en_US/all.js'></script>
+<div class="row" id="main">
+  <div class="span12">
+    
+    <div class="row">
+      <div class="span12" id="header">
+      	<img src="{{STATIC_URL}}base/img/header.png" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12">
+			<h1>My Schools</h1>
+			{% for s in my_schools %}
+				<a href="{% url schools:detail s.slug %}">{{s}}</a>
+			{% endfor %}
+      </div>
+    </div>
+</div>
 {% endblock %}

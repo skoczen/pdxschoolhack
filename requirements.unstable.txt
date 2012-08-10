@@ -5,6 +5,7 @@ django-analytical>=0.12.1
 django-annoying
 django_compressor
 django-extensions
+django_facebook
 django-selector
 django-staticfiles
 django-storages
