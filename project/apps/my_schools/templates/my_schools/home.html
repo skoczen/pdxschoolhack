@@ -27,16 +27,23 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
 <div class="row" id="main">
   <div class="span12">
     
-    <div class="row">
-      <div class="span12" id="header">
-      	<img src="{{STATIC_URL}}base/img/header.png" />
-      </div>
-    </div>
+	{% include "home/_header.html" %}
     <div class="row">
       <div class="span12">
 			<h1>My Schools</h1>
 			{% for s in my_schools %}
-				<a href="{% url schools:detail s.slug %}">{{s}}</a>
+			<div class="school">
+				<div class="quick_contact_info">{{s.phone_number}}</div>
+				<h2><a href="{% url schools:detail s.slug %}" class="school_name">{{s}}</a></h2>
+
+				<div class="events">
+					{% for e in s.upcoming_events %}
+					<div class="event">
+						<a href="{{e.facebook_url}}">{{e.name}}</a> - {{e.start_time|date}} {{e.start_time|time}}
+					</div>
+					{% endfor %}
+				</div>
+			</div>
 			{% endfor %}
       </div>
     </div>
