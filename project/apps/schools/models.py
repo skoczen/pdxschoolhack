@@ -19,6 +19,7 @@ class School(models.Model):
     zip_code = models.CharField(max_length=5, blank=True, null=True)
     phone_number = models.CharField(max_length=255, blank=True, null=True)
     email = models.CharField(max_length=255, blank=True, null=True)
+    website = models.CharField(max_length=255, blank=True, null=True)
     lat = models.FloatField(blank=True, null=True)
     lon = models.FloatField(blank=True, null=True)
     school_type = models.ForeignKey(SchoolType)
