@@ -1,10 +1,12 @@
 from annoying.decorators import render_to
 from django.views.decorators.csrf import csrf_exempt
 
+from schools.models import School
 
 @csrf_exempt
 @render_to("home/home.html")
 def home(request):
+    all_schools = School.objects.all()
     return locals()
 
 
