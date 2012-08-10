@@ -93,16 +93,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
 var locations = [   
 	{% for s in all_schools %}
 	['{{s.name}}', {{s.lat}}, {{s.lon}}, '{{s.school_type}}'],
-	{% endfor %}
-		[ 'Benson Polytechnic High School', 45.5273262, -122.6534292, 'High'], 
-	[ 'Cleveland High School', 45.4985274, -122.6395288, 'High'], 
-	[ 'Franklin High School', 45.5015069, -122.60901039999999, 'High'],  
-		[ 'Grant High School', 45.5386979, -122.62601380000001, 'High'], 
-	[ 'Helensview High School', 45.561682, -122.574636, 'High'], 
-	[ 'Jefferson High School', 45.560747, -122.67156599999998, 'High'], 
-	[ 'Lincoln High School', 45.519639, -122.68923619999998, 'High'],  
-	[ 'Madison High School', 45.541904, -122.58067, 'High'],  
-	[ 'Wilson High School', 45.4786334, -122.69319999999999, 'High'],                                    
+	{% endfor %}                                 
 ]
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom : 11,
