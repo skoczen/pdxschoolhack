@@ -15,57 +15,60 @@
 
 
 {% block content %}
-{% include "home/_header.html" %}
-<div class="row full-width">
-  <div class="span6">
-	<div class="school_info">
-		<h1>{{ school.name }}</h1>
-		<div>{{school.address}} {{school.city}}, OR {{school.zip}}</div>
-		<div>{{school.phone_number}}</div>
-		{% if school.email %}<div><a href="mailto:{{school.email}}">{{school.email}}</a></div>{% endif %}
-		{% if school.website %}<div><a href="{{school.website}}">Website</a></div>{% endif %}
-  	</div>
-  </div>
-  <div class="span6">
-  	<iframe class="school-map" width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{school.map_querystring}}&amp;output=embed&amp;t=m&amp;z=14&amp;iwloc=near"></iframe>
-  </div>
-</div>
-<div class="row full-width">
-  <div class="span12">		
-		<h2>Upcoming Events</h2>
-		<div class="events">
-		{% for e in school.upcoming_events %}
-			<div class="event">
-				<div class="title"><a href="{{e.facebook_event_url}}">{{e.name}}</a></div>
-				<div class="times">
-					{% if start_time|date != end_time|date %}
-					<span class="start_time">{{e.start_time|date}} {{e.start_time|time}}</span>
-					-
-					<span class="end_time">{{e.end_time|date}} {{e.end_time|time}}</span>
-					{% else %}
-					<span class="start_date">{{e.start_time|date}},</span>
-					<span class="start_time">{{e.start_time|time}}</span>
-					-
-					<span class="end_time">{{e.end_time|time}}</span>
-					{% endif %}
-				</div>
-				<div class="description">
-					{{e.description}}
-				</div>
-			</div>
-		{% endfor %}
-		</div>
+<div class="row" id="main">
+  <div class="span12">
+	{% include "home/_header.html" %}
+	<div class="row full-width">
+	  <div class="span6">
+		<div class="school_info">
+			<h1>{{ school.name }}</h1>
+			<div>{{school.address}} {{school.city}}, OR {{school.zip}}</div>
+			<div>{{school.phone_number}}</div>
+			{% if school.email %}<div><a href="mailto:{{school.email}}">{{school.email}}</a></div>{% endif %}
+			{% if school.website %}<div><a href="{{school.website}}">Website</a></div>{% endif %}
+	  	</div>
+	  </div>
+	  <div class="span6">
+	  	<iframe class="school-map" width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{school.map_querystring}}&amp;output=embed&amp;t=m&amp;z=14&amp;iwloc=near"></iframe>
+	  </div>
 	</div>
-  </div>
-</div>
-<div class="row full-width">
-  <div class="span6">
-	<h2>Stats</h2>
-	(Eventually, enrollment, grade statistics, would be here.)
-  </div>
-  <div class="span6">
-	<h2>Needs/Help Out</h2>
-	(Once needs lists were build out, we'd add them here.)
-  </div>
+	<div class="row full-width">
+	  <div class="span12">		
+			<h2>Upcoming Events</h2>
+			<div class="events">
+			{% for e in school.upcoming_events %}
+				<div class="event">
+					<div class="title"><a href="{{e.facebook_event_url}}">{{e.name}}</a></div>
+					<div class="times">
+						{% if start_time|date != end_time|date %}
+						<span class="start_time">{{e.start_time|date}} {{e.start_time|time}}</span>
+						-
+						<span class="end_time">{{e.end_time|date}} {{e.end_time|time}}</span>
+						{% else %}
+						<span class="start_date">{{e.start_time|date}},</span>
+						<span class="start_time">{{e.start_time|time}}</span>
+						-
+						<span class="end_time">{{e.end_time|time}}</span>
+						{% endif %}
+					</div>
+					<div class="description">
+						{{e.description}}
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	  </div>
+	</div>
+	<div class="row full-width">
+	  <div class="span6">
+		<h2>Stats</h2>
+		(Eventually, enrollment, grade statistics, would be here.)
+	  </div>
+	  <div class="span6">
+		<h2>Needs/Help Out</h2>
+		(Once needs lists were build out, we'd add them here.)
+	  </div>
+    </div>
 </div>
 {% endblock %}
