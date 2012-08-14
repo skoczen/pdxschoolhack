@@ -10,8 +10,8 @@ urlpatterns = patterns('',
     url(r'', include('home.urls', namespace="home", )),
     url(r'^schools/', include('schools.urls', namespace="schools", )),
     url(r'^my_schools/', include('my_schools.urls', namespace="my_schools", )),
-    url(r'^facebook/', include('django_facebook.urls', namespace="django_facebook")),
-    url(r'^accounts/', include('django_facebook.auth_urls', namespace="django_facebook_auth")), 
+    url(r'^facebook/', include('django_facebook.urls')),
+    url(r'^accounts/', include('django_facebook.auth_urls')), 
     url(r'^administration/', include(admin.site.urls)),
 
     url(r'^fonts/(?P<path>.*)$', 'django.views.static.serve', {
