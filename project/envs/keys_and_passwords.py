@@ -4,7 +4,6 @@ AWS_STORAGE_BUCKET_NAME = None
 DB_PASSWORD = None
 GAUGES_SITE_ID = None
 GOOGLE_ANALYTICS_PROPERTY_ID = None
-WOOPRA_DOMAIN = None
 
 try:
     from keys_and_passwords_private import *

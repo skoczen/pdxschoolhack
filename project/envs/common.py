@@ -58,7 +58,8 @@ STATICFILES_FINDERS = (
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
-# AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+FACEBOOK_APP_ID = '400474649994341'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '^7!$isr6jd!o+mgl1qy@+8197dm53uhp2i*vp8k4p#*g#8mg1n'
@@ -79,8 +80,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    # 'django_facebook.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'django_facebook.auth_backends.FacebookBackend',
 )
 
 ROOT_URLCONF = 'project.urls'
@@ -103,7 +104,7 @@ INSTALLED_APPS = (
     "annoying",
     "compressor",
     "django_extensions",
-    # "django_facebook",
+    "django_facebook",
     "lettuce.django",
     "gunicorn",
     "south",
@@ -122,7 +123,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.static",
     "django.core.context_processors.request",
-    # 'django_facebook.context_processors.facebook',
+    'django_facebook.context_processors.facebook',
 )
 
 
