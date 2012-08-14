@@ -19,7 +19,7 @@
 {% block content %}
 	{% include "home/_header.html" %}
 <form action="{% url facebook_connect %}?facebook_login=1" method="post">
-<a href="javascript:void(0);" style="font-size: 20px;" onclick="F.connect(this.parentNode);">Register, login or connect with facebook</a>
+<a href="javascript:void(0);" style="font-size: 20px;" onclick="F.connect(this.parentNode);">Login with facebook</a>
 <input type="hidden" value="{{ request.path }}" name="next" />
 </form>
 
