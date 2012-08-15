@@ -26,7 +26,7 @@
 
 
 {% if request.user.is_authenticated %}
-    <h1>Welcome {{ request.user }}</h1><a href="{% url auth_logout %}?next={{ request.path|urlencode }}">logout</a><br />
+    <h1>Welcome {{ request.user }}</h1><a href="{% url auth_logout %}?next={% url my_schools:home %}">logout</a><br />
     
     <p>
     Thank you for logging in with Facebook.

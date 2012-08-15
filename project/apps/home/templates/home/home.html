@@ -39,6 +39,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
 							GO
 						</button>
 					-->
+
 					<button type="submit" style="border: 0; background: transparent">
     					<img src="{{STATIC_URL}}base/img/button_go.png" width="59" heght="36" alt="Save my schools" />
 					</button>
@@ -60,12 +61,12 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
       	<fieldset>
 		<div class="row">
 			<div class="span6">
-				<div class="control-group error">
+				<div class="control-group ">
 					<input class="input-xlarge" id="high_school" type="text" placeholder="Choose a High School" disabled="">
 					<span id="high_school_complete" style="display: none"><img src="{{STATIC_URL}}base/img/checkmark.png" width="34" height="27" alt="Done" /></span>
 				</div>
 			</div>
-		</div><br />
+		</div>
 		<div class="row">
 			<div class="span6">
 				<input class="input-xlarge " id="middle_school" type="text" placeholder="Choose a Middle School" disabled="">
@@ -78,10 +79,9 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
 				<span  id="elementary_school_complete" style="display: none"><img src="{{STATIC_URL}}base/img/checkmark.png" width="34" height="27" alt="Done" /></span>
 			</div>
 		</div><br />
-			<a href="{% url facebook_connect %}" type="submit" style="border: 0; background: transparent">
+			<a href="{% url my_schools:home %}" type="submit" style="border: 0; background: transparent" class="submit_btn">
     			<img src="{{STATIC_URL}}base/img/button_save.png" width="169" heght="35" alt="Save my schools" />
 			</a>
-			<!--<button class="btn btn-warning" href="#">Save my schools</button>-->
 		</fieldset>
 		</form>
       </div>
@@ -92,7 +92,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
 <script type="text/javascript">
 var locations = [   
 	{% for s in all_schools %}
-	['{{s.name}}', {{s.lat}}, {{s.lon}}, '{{s.school_type}}'],
+	['{{s.name}}', {{s.lat|default:124}}, {{s.lon|default:124}}, '{{s.school_type}}', '{{s.slug}}'],
 	{% endfor %}                                 
 ]
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -117,7 +117,7 @@ var locations = [
 		
 		google.maps.event.addListener(marker, 'click', (function(marker, i) {
 			return function() {
-				infowindow.setContent(locations[i][0] + '<br /><a href="#" onclick="return setSchool(\'' + locations[i][0] + '\',\'' + locations[i][3] + '\');">Add this school.</a>');
+				infowindow.setContent(locations[i][0] + '<br /><a href="#" onclick="setSchool(\'' + locations[i][0] + '\',\'' + locations[i][3] + '\');$(\'.submit_btn\').attr({\'href\':\'/my_schools?s='+locations[i][4]+'\'});">Add this school.</a>');
 				infowindow.open(map, marker);
 				
 				
