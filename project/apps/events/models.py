@@ -9,7 +9,7 @@ class Event(models.Model):
     photo = models.ImageField(blank=True, null=True, upload_to="uploads/events")
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.DateTimeField(blank=True, null=True)    
-    facebook_id = models.CharField(max_length=255, blank=True, null=True)
+    facebook_id = models.CharField(max_length=255, blank=True, null=True, editable=False)
 
     def __unicode__(self):
         return "%s" % self.name

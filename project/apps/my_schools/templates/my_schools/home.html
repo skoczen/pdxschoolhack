@@ -20,7 +20,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- 
 <script type="text/javascript"
 src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQwacn9bA&sensor=false"></script>
 <script src='//connect.facebook.net/en_US/all.js'></script>
@@ -46,16 +45,11 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
       <div class="span6">
 		<div class="map_pane" id="map" style="height: 315px; width: 360px"></div>
       </div>
-  </div></div> -->
-
-<!-- <form action="{% url facebook_connect %}?facebook_login=1" method="post">
-<a href="javascript:void(0);" style="font-size: 20px;" onclick="F.connect(this.parentNode);">Login with facebook</a>
-<input type="hidden" value="{{ request.path }}" name="next" />
-</form>
- -->
+  </div></div>
 
 
-{# {% if request.user.is_authenticated %} #}
+
+{% if request.user.is_authenticated %}
 	{% include "home/_header.html" %}
     <div class="row">
       <div class="span12">
@@ -76,5 +70,6 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MAQ
 			{% endfor %}
       </div>
     </div>
+{% endif %}
 </div>
 {% endblock %}

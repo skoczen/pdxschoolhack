@@ -58,7 +58,7 @@ STATICFILES_FINDERS = (
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
-AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
+AUTH_PROFILE_MODULE = 'my_schools.Person'
 FACEBOOK_APP_ID = '400474649994341'
 
 # Make this unique, and don't share it with anybody.

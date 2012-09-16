@@ -30,20 +30,24 @@ setSchool = function(school,type){
 	return false;
 }
 
+window.fbAsyncInit = function() {
+	FB.Canvas.setSize({height:660});			
+	FB.Canvas.setAutoResize(true,5000);	
+}
+	
+
 $(function() {
+	FB.init({
+			appId : '400474649994341',
+			status : true,
+			cookie : true
+		});
+	
 	$('#zipcode_form').submit(function() {
 		codeAddress();
 		return false;
 	});
 	
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId : '400474649994341',
-			status : true,
-			cookie : true
-		});
-	}
 	
-	FB.Canvas.setSize({height:660});			
-	FB.Canvas.setAutoResize(true,5000);			
+			
 });

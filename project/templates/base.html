@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="{{STATIC_URL}}base/css/style.css">
   {# Temp for prototype.  TODO: Properly abstract this. #}
   <link rel="stylesheet" href="{{STATIC_URL}}events/css/site.css">
-  {# <link href="{{ STATIC_URL }}css/facebook.css" type="text/css" rel="stylesheet" media="all" /> #}
+  <link href="{{ STATIC_URL }}css/facebook.css" type="text/css" rel="stylesheet" media="all" />
   {% endcompress %}
   {% endblock %}
 
@@ -49,7 +49,7 @@
 	<script type="text/javascript" src="{{STATIC_URL}}base/js/libs/easel.js"></script>
   {% endcompress %}
   {% block js %}
-	{# {% include 'django_facebook/_facebook_js.html' %} #}
+	{% include 'django_facebook/_facebook_js.html' %}
   {% endblock %}
 
   <!--[if lt IE 7 ]>
