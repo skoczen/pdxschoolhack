@@ -1,6 +1,6 @@
 from django.db import models
 from schools.models import School
-
+# from open_facebook.api import *
 
 class Event(models.Model):
     school = models.ForeignKey(School)
@@ -9,7 +9,7 @@ class Event(models.Model):
     photo = models.ImageField(blank=True, null=True, upload_to="uploads/events")
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.DateTimeField(blank=True, null=True)    
-    facebook_id = models.CharField(max_length=255, blank=True, null=True)
+    facebook_id = models.CharField(max_length=255, blank=True, null=True, editable=False)
 
     def __unicode__(self):
         return "%s" % self.name
@@ -23,3 +23,7 @@ class Event(models.Model):
 
     def create_facebook_event(self):
         raise Exception("Not yet implemented")
+        # if not self.facebook_id:
+        # fb = OpenFacebook.
+        # https://developers.facebook.com/docs/reference/api/page/#page_access_tokens
+        # https://github.com/tschellenbach/Django-facebook/blob/master/open_facebook/api.py
