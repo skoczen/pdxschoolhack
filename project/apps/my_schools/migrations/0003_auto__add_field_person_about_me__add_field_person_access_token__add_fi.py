@@ -42,7 +42,7 @@ class Migration(SchemaMigration):
         db.add_column('my_schools_person', 'user', self.gf('django.db.models.fields.related.OneToOneField')(default=0, to=orm['auth.User'], unique=True), keep_default=False)
 
         # Changing field 'Person.facebook_id'
-        db.alter_column('my_schools_person', 'facebook_id', self.gf('django.db.models.fields.BigIntegerField')(unique=True, null=True))
+        db.add_column('my_schools_person', 'facebook_id', self.gf('django.db.models.fields.BigIntegerField')(unique=True, null=True), keep_default=False)
 
         # Adding unique constraint on 'Person', fields ['facebook_id']
         db.create_unique('my_schools_person', ['facebook_id'])
