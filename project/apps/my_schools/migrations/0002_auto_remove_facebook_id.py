@@ -9,7 +9,10 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Adding field 'PersonSchool.person'
-        db.delete_column('my_schools_person', 'facebook_id')
+        try:
+            db.delete_column('my_schools_person', 'facebook_id')
+        except:
+            pass
 
 
     def backwards(self, orm):
