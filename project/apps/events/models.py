@@ -1,6 +1,6 @@
 from django.db import models
 from schools.models import School
-
+# from open_facebook.api import *
 
 class Event(models.Model):
     school = models.ForeignKey(School)
@@ -23,3 +23,7 @@ class Event(models.Model):
 
     def create_facebook_event(self):
         raise Exception("Not yet implemented")
+        # if not self.facebook_id:
+        # fb = OpenFacebook.
+        # https://developers.facebook.com/docs/reference/api/page/#page_access_tokens
+        # https://github.com/tschellenbach/Django-facebook/blob/master/open_facebook/api.py
