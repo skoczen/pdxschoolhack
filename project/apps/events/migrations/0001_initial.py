@@ -7,22 +7,22 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
+
         # # Adding model 'Event'
-        # db.create_table('events_event', (
-        #     ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-        #     ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
-        #     ('school', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['schools.School'])),
-        #     ('facebook_id', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
-        # ))
-        # db.send_create_signal('events', ['Event'])
+        db.create_table('events_event', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('school', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['schools.School'])),
+            ('facebook_id', self.gf('django.db.models.fields.CharField')(max_length=255, null=True, blank=True)),
+        ))
+        db.send_create_signal('events', ['Event'])
         pass
 
 
     def backwards(self, orm):
-        
+
         # Deleting model 'Event'
-        # db.delete_table('events_event')
+        db.delete_table('events_event')
 
         pass
 
