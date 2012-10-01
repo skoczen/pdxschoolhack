@@ -7,19 +7,21 @@ Setup for this app
 
 1. Clone it down.
 
-2. Set up a virtualenv for it.  `pip install -r requirements.txt`
+1. Set up a virtualenv for it.  Activate the virtual env.
 
-3. Edit your `/etc/hosts` file, and add: ```127.0.0.1   myportlandschools.herokuapp.com```
+1. Install the reqs:  `pip install -r requirements.txt`
 
-4. `cd projects`
+1. Edit your `/etc/hosts` file, and add: ```127.0.0.1   myportlandschools.herokuapp.com```
 
-5. `./manage.py syncdb`  (For some reason, this was occasionally failing on me.  If so, just run it again.)
+1. `cd projects`
 
-6. `./manage.py migrate`
+1. `./manage.py syncdb`  (For some reason, this was occasionally failing on me.  If so, just run it again.)
 
-7. Fire up the test server, but on port 80: `sudo manage.py runserver 0.0.0.0:80`
+1. `./manage.py migrate`
 
-8. You can now get to the app at: http://myportlandschools.herokuapp.com
+1. Fire up the test server, but on port 80: `sudo manage.py runserver 0.0.0.0:80`
+
+1. You can now get to the app at: http://myportlandschools.herokuapp.com
 
 
 Note: When you want to actually use the live app, you'll need to comment that line out of your `/etc/hosts` file.
