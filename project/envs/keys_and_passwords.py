@@ -12,6 +12,7 @@ except:
 
 from os import environ
 
+
 def set_env_fallback(key):
 
     if (key not in globals() or globals()[key] is None) and key in environ:
@@ -24,5 +25,3 @@ set_env_fallback("DB_PASSWORD")
 set_env_fallback("GAUGES_SITE_ID")
 set_env_fallback("GOOGLE_ANALYTICS_PROPERTY_ID")
 set_env_fallback("FACEBOOK_APP_SECRET")
-
-
