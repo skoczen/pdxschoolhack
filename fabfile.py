@@ -1,6 +1,6 @@
 from fabric.api import *
 
-env.PROJECT_NAME = "myportlandschools"
+env.PROJECT_NAME = "pdxschoolhack"
 env.GITHUB_USER = "skoczen"
 env.GITHUB_REPO = env.PROJECT_NAME
 env.VIRTUALENV_NAME = env.PROJECT_NAME
