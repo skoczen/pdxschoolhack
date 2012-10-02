@@ -2,99 +2,26 @@ Artechetype (terrible pun) is a grab-and-go starter django+js I use when making 
 
 NOTE: I'm still working on it. Don't use it quite yet.
 
-Grab it and go
-==============
+Setup for this app
+==================
 
-1. Set up your new repo, say `github.com:myusername/mynewproject.git`
+1. Clone it down.
 
-2. Clone artechetype into a local directory.
-	
-	```bash
-	git clone git@github.com:skoczen/artechetype.git mynewproject.git
-	```
+1. Set up a virtualenv for it.  Activate the virtual env.
 
-3. Set `PROJECT_NAME`, `GITHUB_REPO` and any other env settings you need in `fabfile.py`
+1. Install the reqs:  `pip install -r requirements.txt`
 
-4. Set up the your virtualenv, and `pip install fabric`
+1. Edit your `/etc/hosts` file, and add: ```127.0.0.1   myportlandschools.herokuapp.com```
 
-5. Set up your remotes manually, or by use the fab helper command.
-	
-	```bash
-	fab initial_setup
-	```
+1. `cd projects`
 
-5. You're set. 
-	
-	```bash
-	cd project
-	./manage.py runserver
-	```
+1. `./manage.py syncdb`  (For some reason, this was occasionally failing on me.  If so, just run it again.)
+
+1. `./manage.py migrate`
+
+1. Fire up the test server, but on port 80: `sudo manage.py runserver 0.0.0.0:80`
+
+1. You can now get to the app at: http://myportlandschools.herokuapp.com
 
 
-
-Deploying to Heroku, with AWS for static media
-==============================================
-
-I love heroku. It's easy, it scales well, and it takes care of most of the stuff I don't want to think about.  Here's how to get artechetype running on it:
-
-Preparing
----------
-
-
-1. Install the gem, if you don't already have it
-
-	```gem install heroku```
-
-2. Authenticate
-
-	```heroku login```
-
-3. Create the app
-	
-	```bash
-	heroku create --stack cedar mynewproject
-	```
-
-3. I use this set of addons in almost every project
-
-	```bash
-heroku addons:add custom_domains:basic
-heroku addons:add zerigo_dns:basic
-heroku addons:add memcache:5mb
-heroku addons:add logging:expanded
-heroku addons:add redistogo:nano
-	```
-
-4. Set up your domains
-
-	```bash
-	heroku domains:add www.mydomain.com
-	heroku domains:add mydomain.com
-	```
-
-5. Set your keys
-
-	* If you have a private repo, you can set the keys directly in `keys_and_passwords.py`.
-	* If you have a public repo:
-		* You're best off setting them as environment variables in your deployment environment.  
-			```bash
-			heroku config:add AWS_ACCESS_KEY_ID=foo-bar-1
-			```
-		* For local usage, set the keys in `keys_and_passwords_private.py`
-
-	Keys you're likely want to set:
-		```bash
-		heroku config:add AWS_ACCESS_KEY_ID=foo`
-		heroku config:add AWS_SECRET_ACCESS_KEY=bar
-		heroku config:add AWS_STORAGE_BUCKET_NAME=myproject
-		heroku config:add DB_PASSWORD=pass1234
-		# analytics settings.
-		```
-	
-
-Deploying
----------
-
-* `fab deploy`
-
-Note: If you haven't created the AWS bucket, simply running `./manage.py sync_static` will do it for you.
+Note: When you want to actually use the live app, you'll need to comment that line out of your `/etc/hosts` file.

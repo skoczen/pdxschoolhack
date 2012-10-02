@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{STATIC_URL}}home/css/site.css">
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <style type="text/css">
-	
+
 </style>
 {% endcompress %}
 {% endblock %}
@@ -27,7 +27,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MA
 <div class="row" id="main">
   <div class="span12">
   {% include "home/_header.html" %}
-    
     <div class="row">
       <div class="span12" >
 		    <form class="form-search" id="zipcode_form" method="POST" action="{# {% url home:home %} #}">
@@ -35,7 +34,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MA
 					<div class="control-group" id="zipcode">
 						<label for="zipcode">Enter your Zipcode</label>
 						<input type="text" id="zipcode_input" class="input-medium search-query" placeholder="Zipcode" />
-					
+
 
 					<button type="submit" style="border: 0; background: transparent">
     					<img src="{{STATIC_URL}}base/img/button_go.png" width="59" heght="36" alt="Save my schools" />
@@ -44,15 +43,15 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MA
 				</fieldset>
 			</form>
     	</div>
-    </div>	
-    	
+    </div>
+
     <div class="row">
       <div class="span6">
 		<div class="map_pane" id="map" style="height: 315px; width: 360px"></div>
       </div>
       <div class="span6">
       	<form class="form-horizontal" id="schools">
-      	
+
       	<h3>My Neighborhood Schools:</h3>
       	<p>Choose your schools on the map to get started.</p>
       	<fieldset>
@@ -87,47 +86,47 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBE6NAqMslOi-G61IREqzoV0MA
 </form>
 
 
-		
+
       </div>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
-var locations = [   
+var locations = [
 	{% for s in all_schools %}
 	['{{s.name}}', {{s.lat|default:124}}, {{s.lon|default:124}}, '{{s.school_type}}', '{{s.slug}}'],
-	{% endfor %}                                 
+	{% endfor %}
 ]
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom : 11,
 		center : new google.maps.LatLng(45.52, -122.62),
 		mapTypeId : google.maps.MapTypeId.ROADMAP
 	});
-	
+
 
 	var infowindow = new google.maps.InfoWindow();
 	geocoder = new google.maps.Geocoder();
 
 	var marker, i;
-	
-	
-     
+
+
+
 	for( i = 0; i < locations.length; i++) {
 		marker = new google.maps.Marker({
 			position : new google.maps.LatLng(locations[i][1], locations[i][2]),
 			map : map
 		});
-		
+
 		google.maps.event.addListener(marker, 'click', (function(marker, i) {
 			return function() {
 				infowindow.setContent(locations[i][0] + '<br /><a href="#" onclick="setSchool(\'' + locations[i][0] + '\',\'' + locations[i][3] + '\');$(\'.submit_btn\').attr({\'href\':\'/my_schools?s='+locations[i][4]+'\'});">Add this school.</a>');
 				infowindow.open(map, marker);
-				
-				
+
+
 			}
 		})(marker, i));
 	}
-	
+
 </script>
 {% endblock %}
