@@ -11,6 +11,7 @@ class SchoolType(models.Model):
     def __unicode__(self):
         return "%s" % self.name
 
+
 class School(models.Model):
     name = models.CharField(max_length=255)
     slug = models.CharField(max_length=255, editable=False)

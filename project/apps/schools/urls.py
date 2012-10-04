@@ -1,4 +1,3 @@
-from django.conf.urls.defaults import include, url
 import dselector
 parser = dselector.Parser()
 url = parser.url

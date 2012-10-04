@@ -1,5 +1,39 @@
+h1, h2, h3, h4 {
+    font-weight: normal;
+}
 .event {
-	padding: 10px;
-	background: #EEE;
-	margin: 20px;
+    padding: 10px;
+    border: 1px solid #EEE;
+    background: #F4F4F4;
+    margin: 10px;
+}
+.event a, .school a {
+    font-size: 20px;
+    color: #ff6600;
+}
+a.school_name {
+    font-size: 30px;
+}
+.school-map {
+    float: right;
+    margin: 20px;
+}
+.row.full-width {
+    width: 100%;
+    margin: 0px auto;
+}
+.school_info {
+    padding-top: 20px;
+    font-size: 20px;
+}
+.school {
+    background-color: #F9F9F9;
+    border: 1px solid #EEE;
+    border-radius: 10px;
+    padding: 20px;
+}
+.school .quick_contact_info {
+    float: right;
+    margin-top: 6px;
+    font-size: 18px;
 }
