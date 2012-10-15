@@ -1,0 +1,24 @@
+{% extends "base.html" %}{% load compress %}
+
+{% block css %}{{block.super}}
+{% compress css %}
+<link rel="stylesheet" href="{{STATIC_URL}}home/css/fonts.css">
+<link rel="stylesheet" href="{{STATIC_URL}}home/css/site.css">
+{% endcompress %}
+{% endblock %}
+
+
+
+{% block js %}{{block.super}}
+{% compress js %}
+<script src="{{STATIC_URL}}home/js/site.js"></script>
+{% endcompress %}
+{% endblock %}
+
+{% block content %}
+<div class="coming-soon">
+    <img src="{{STATIC_URL}}base/img/header.png" />
+    <div class="in-dev">The My Portland Schools app is in development, and will be launching soon!</div>
+</div>
+
+{% endblock %}

@@ -5,7 +5,7 @@ body, html {
 }
 
 *, p{
-	font-family: Helvetica, Arial, sans-serif	
+	font-family: Helvetica, Arial, sans-serif
 }
 
 body {
@@ -42,5 +42,17 @@ body {
 }
 
 h3{
-	color: #ff6600; 
+	color: #ff6600;
+}
+
+.coming-soon {
+	display: block;
+	width: 60%;
+	margin: 60px auto;
+	text-align: center;
+}
+.in-dev {
+	font-size: 20px;
+	color: #777;
+	padding: 40px;
 }
